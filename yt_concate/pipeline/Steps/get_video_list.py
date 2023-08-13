@@ -38,15 +38,14 @@ class GetVideoList(Step):
         self.write_to_file(video_links, utils.get_video_list_filepath(channel_id))
         return video_links
 
-
     def write_to_file(self, video_links, filepath):
-        with open(filepath, 'w') as f:
+        with open(filepath, 'w', encoding='utf-8') as f:
             for url in video_links:
                 f.write(url + '\n')
 
     def read_to_file(self, filepath):
         video_list = []
-        with open(filepath, 'r') as f:
+        with open(filepath, 'r', encoding='utf-8') as f:
             for url in f:
                 video_list.append(url.strip())
         return video_list
